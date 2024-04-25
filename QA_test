@@ -1,0 +1,31 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+# Start the browser
+driver = webdriver.Chrome(executable_path='https://www.google.com/')
+
+# Open the Tkinter application
+driver.get("file:///path/to/your/tkinter_application.html")
+
+# Find and interact with Tkinter GUI elements
+room_combobox = driver.find_element_by_name("room_combobox")
+room_combobox.send_keys("101")  # Select Room 101 from dropdown
+
+name_entry = driver.find_element_by_name("name_entry")
+name_entry.send_keys("John Doe")
+
+email_entry = driver.find_element_by_name("email_entry")
+email_entry.send_keys("john@example.com")
+
+payment_combobox = driver.find_element_by_name("payment_combobox")
+payment_combobox.send_keys("Credit Card")  # Select Credit Card payment method from dropdown
+
+reserve_button = driver.find_element_by_name("reserve_button")
+reserve_button.click()  # Click the Reserve button
+
+# Wait for reservation confirmation
+time.sleep(1)
+
+# Close the browser
+driver.quit()
